@@ -55,6 +55,7 @@ public class EntityRepository {
 		return maxId;
 	}
 
+	// Для улучшения производительности, можно добавить запись сущностей не по одной, а пакетами (batch)
 	public int save(byte[] buffer) throws IOException {
 		writeLock.lock();
 		try (FileOutputStream fos = new FileOutputStream(FILE_NAME, true)) {
